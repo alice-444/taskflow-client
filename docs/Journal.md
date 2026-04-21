@@ -277,3 +277,6 @@ Objectif de la phase :
 
 <img width="2302" height="1144" alt="image" src="https://github.com/user-attachments/assets/0aad4cf6-9fd3-4c84-bcb2-d04111540777" />
 
+<img width="2588" height="1236" alt="image" src="https://github.com/user-attachments/assets/94bdec25-8726-4880-ad90-7cf3aefa864e" />
+
+
