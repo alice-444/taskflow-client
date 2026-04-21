@@ -120,10 +120,11 @@ Outil utilisé :
 
 #### ✅ Validations
 
-- [ ] Sans authentification: 0 résultat sur les tables protégées.
-- [ ] Alice voit uniquement ses tâches et aucune tâche d'un autre projet.
+- [x] Sans authentification: 0 résultat sur les tables protégées.
+- [x] Alice voit uniquement ses tâches et aucune tâche d'un autre projet.
 - [ ] Toute tentative de modification d'une tâche de Bob est refusée par la RLS.
-  (image)
+
+<img width="1230" height="254" alt="image" src="https://github.com/user-attachments/assets/aaa98786-ed94-43b6-b3d3-3b4c5d530dde" />
 
 ---
 
@@ -159,14 +160,20 @@ Outils utilisés :
   - suivi de présence des utilisateurs connectés sur un projet
 
 #### ✅ Validation
+- [x] `getProjectTasks()` retourne bien les tâches avec profil associé et nombre de commentaires.
+- [x] Compte Uploadthing créé et clés configurées dans `.env`.
+- [x] Colonne `file_url` présente dans la table `tasks`.
+- [x] Alice reçoit en temps réel les créations de Bob (< 500 ms).
+- [x] Les changements de statut sont propagés instantanément.
+- [x] La présence affiche correctement les deux utilisateurs connectés.
 
-- [ ]`getProjectTasks()` retourne bien les tâches avec profil associé et nombre de commentaires.
-- [ ] Compte Uploadthing créé et clés configurées dans `.env`.
-- [ ] Colonne `file_url` présente dans la table `tasks`.
-- [ ] Alice reçoit en temps réel les créations de Bob (< 500 ms).
-- [ ] Les changements de statut sont propagés instantanément.
-- [ ] La présence affiche correctement les deux utilisateurs connectés.
-  (images)
+  <img width="2682" height="1348" alt="image" src="https://github.com/user-attachments/assets/1611f480-30ea-42f7-960e-13199ebd8a94" />
+
+  <img width="340" height="626" alt="image" src="https://github.com/user-attachments/assets/2fa4297a-f59c-47ad-811d-bef58bd54c22" />
+
+  <img width="1146" height="422" alt="image" src="https://github.com/user-attachments/assets/33aa830c-a3c1-4478-bf53-d156a8d1c809" />
+
+  <img width="1410" height="752" alt="image" src="https://github.com/user-attachments/assets/7d113d19-3b80-4321-9664-b2eeac8a54f4" />
 
 ---
 
@@ -191,12 +198,23 @@ Outils utilisés :
 
 #### ✅ Validations
 
-- [ ] Compte Resend créé, clé API dans .env et dans les settings Azure
+- [x] Compte Resend créé, clé API dans .env et dans les settings Azure
 - [ ] Function App fn-taskflow déployé (visible dans le portail Azure)
-- [ ] Webhook Supabase configuré sur UPDATE de tasks
+- [x] Webhook Supabase configuré sur UPDATE de tasks
 - [ ] Assignation d'une tâche → notification insérée dans la table notifications
-- [ ] Logs visibles : az functionapp logs tail --name fn-taskflow --resource-group rg-
-taskflow
+- [ ] Logs visibles : az functionapp logs tail --name fn-taskflow --resource-group rg-taskflow
+
+Resend
+<img width="2400" height="470" alt="image" src="https://github.com/user-attachments/assets/49ec6c06-6414-4da5-a57c-6539235a0101" />
+
+Supabase
+<img width="2326" height="770" alt="image" src="https://github.com/user-attachments/assets/7aff0141-480b-4507-9914-46d6144f2866" />
+
+Portail Azure
+(image)
+
+Logs
+(image)
 
 ---
 
