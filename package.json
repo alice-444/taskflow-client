@@ -1,0 +1,21 @@
+{
+  "name": "taskflow-client",
+  "description": "Client scripts for Supabase auth and RLS checks",
+  "type": "module",
+  "main": "client.js",
+  "scripts": {
+    "start": "node test-rls.js",
+    "test:rls": "node test-rls.js",
+    "test": "npm run test:rls"
+  },
+  "keywords": [
+    "serverless",
+    "supabase",
+    "rls"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.0",
+    "dotenv": "^17.4.2"
+  }
+}
