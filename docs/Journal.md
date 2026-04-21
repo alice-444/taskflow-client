@@ -84,12 +84,14 @@ Outil utilisé :
 
 #### ✅ Validations
 
-- [ ] 6 tables sont bien visibles dans le Table Editor.
-  (image)
-- [ ] 2 profils et au moins 3 tâches de démonstration sont insérés.
-  (image)
-- [ ] L'accès au projet fonctionne correctement avec les données attendues.
-  (image)
+- [x] 6 tables sont bien visibles dans le Table Editor.
+      <img width="1814" height="1482" alt="image" src="https://github.com/user-attachments/assets/ccfa7b91-28c5-4804-8853-983151008eec" />
+
+- [x] 2 profils et au moins 3 tâches de démonstration sont insérés.
+    Profils :
+      <img width="2330" height="448" alt="image" src="https://github.com/user-attachments/assets/9cca6f38-af70-45ce-b99a-d5b846693053" />
+    Tasks :
+      <img width="2840" height="422" alt="image" src="https://github.com/user-attachments/assets/16d366a0-2f1b-43ef-82b1-9f9cce222092" />
 
 ---
 
