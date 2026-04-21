@@ -60,6 +60,10 @@ async function insertNotification(
 }
 
 export async function notify_assigned(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+  if (request.method === "GET") {
+    return { status: 200, body: "OK" };
+  }
+
   const payload = (await request.json()) as SupabaseWebhookPayload;
   if (!payload || payload.type !== "UPDATE") {
     return { status: 200, body: "ignored" };
