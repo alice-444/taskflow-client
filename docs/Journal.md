@@ -77,7 +77,8 @@ Objectif de la phase :
 
 Outil utilisé :
 
-- **Supabase Auth + RLS** pour gérer l'authentification et appliquer des règles d'accès directement au niveau SQL
+- **Supabase Auth + RLS** pour:
+  - gérer l'authentification et appliquer des règles d'accès directement au niveau SQL
 
 #### 🛠️ Mise en oeuvre (Auth & RLS)
 
@@ -87,7 +88,6 @@ Outil utilisé :
   - lecture limitée aux membres autorisés
   - création de données uniquement pour un utilisateur authentifié
   - modification/suppression uniquement par le propriétaire ou selon le rôle
-
 - Vérification par script de test RLS (`test-rls.ts`) pour valider les refus d'accès non autorisés.
 
 ---
@@ -102,7 +102,12 @@ Objectif de la phase :
 
 Outil utilisé :
 
-- **??** pour:
+- **Supabase SDK** pour:
+  - implémenter le CRUD des tâches et commentaires (lecture, création, mise à jour, assignation) avec gestion des permissions applicatives
+- **Uploadthing** pour:
+  - gérer l'upload sécurisé des pièces jointes (types/tailles autorisés) et récupérer l'URL finale associée à une tâche
+- **Realtime** pour:
+  - synchroniser en direct les changements de tâches/commentaires et la présence des utilisateurs sur un projet
 
 #### 🛠️ Mise en oeuvre
 
@@ -118,9 +123,12 @@ Objectif de la phase :
 
 - ??
 
-Outil utilisé :
+Outils utilisés :
 
-- **??** pour:
+- **Azure Functions** pour:
+  - exécuter la logique d'envoi d'emails côté serveur après les événements métier (création de tâche, assignation, changement de statut).
+- **Resend** pour:
+  - envoyer des emails transactionnels fiables (API simple, templates, suivi des envois et gestion des erreurs).
 
 #### 🛠️ Mise en oeuvre
 
@@ -138,7 +146,8 @@ Objectif de la phase :
 
 Outil utilisé :
 
-- **??** pour:
+- **Azure Functions** pour:
+  - exposer 3 endpoints métier serverless (validation d'accès, orchestration des opérations & réponses API normalisées).
 
 #### 🛠️ Mise en oeuvre
 
@@ -154,10 +163,6 @@ Objectif de la phase :
 
 - ??
 
-Outil utilisé :
-
-- **??** pour:
-
 #### 🛠️ Mise en oeuvre
 
 ??
@@ -172,9 +177,14 @@ Objectif de la phase :
 
 - ??
 
-Outil utilisé :
+Outils utilisés :
 
-- **??** pour:
+- **Azure Monitoring / Application Insights** pour:
+  - collecter logs, métriques, traces et erreurs afin de suivre la santé applicative
+  - diagnostiquer rapidement les incidents
+- **k6** pour:
+  - exécuter des tests de charge (pics et charge soutenue)
+  - mesurer latence/erreur et valider la stabilité des endpoints serverless
 
 #### 🛠️ Mise en oeuvre
 
