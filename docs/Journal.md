@@ -41,6 +41,14 @@
       - [🎯 Cadre de la phase](#-cadre-de-la-phase-1)
       - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-1)
       - [✅ Validations](#-validations-2)
+    - [🌐 Logique métier serverless (3 endpoints)](#-logique-métier-serverless-3-endpoints)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase-2)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-2)
+      - [✅ Validation](#-validation-1)
+    - [✅ Intégration finale \& pipeline complet](#-intégration-finale--pipeline-complet)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase-3)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-3)
+      - [✅ Validation](#-validation-2)
 
 ---
 
@@ -209,15 +217,13 @@ Portail Azure
 Logs
 (image)
 
-<!-- ---
-
 ### 🌐 Logique métier serverless (3 endpoints)
 
 #### 🎯 Cadre de la phase
 
 Objectif de la phase :
 
-- ??
+- centraliser les règles métier côté serveur pour garantir des traitements cohérents, sécurisés et réutilisables depuis le client.
 
 Outil utilisé :
 
@@ -226,7 +232,11 @@ Outil utilisé :
 
 #### 🛠️ Mise en oeuvre
 
-??
+- Définition de 3 endpoints Azure Functions orientés métier (et non CRUD brut).
+- Validation des entrées côté serveur (payload, identité utilisateur, droits d'accès).
+- Orchestration des opérations entre Supabase (données), notifications et règles de statut.
+- Normalisation des réponses API (succès/erreur) pour simplifier la consommation côté client.
+- Ajout de logs structurés pour le suivi d'exécution et le débogage en environnement serverless.
 
 #### ✅ Validation
 
@@ -235,19 +245,21 @@ Outil utilisé :
 - [ ] project-stats : taux de complétion et tâches en retard corrects
 - [ ] manage-members : Bob simple membre → 403, owner non retirable
 
---- -->
-
-<!-- ### ✅ Intégration finale & pipeline complet
+### ✅ Intégration finale & pipeline complet
 
 #### 🎯 Cadre de la phase
 
 Objectif de la phase :
 
-- ??
+- valider le fonctionnement bout en bout du produit (auth, RLS, CRUD, uploads, realtime, notifications, serverless) et sécuriser la mise en production.
 
 #### 🛠️ Mise en oeuvre
 
-??
+- Exécution d'un scénario d'intégration complet simulant le parcours réel d'un utilisateur.
+- Vérification de la cohérence des données entre client, base Supabase et endpoints serverless.
+- Contrôle de la chaîne événementielle: changement métier -> webhook -> function -> notification -> realtime.
+- Mesure des performances clés (latence API, propagation realtime, temps de traitement serverless).
+- Consolidation des preuves de test (captures, logs, résultats checklist) pour valider la phase finale.
 
 #### ✅ Validation
 
@@ -255,4 +267,4 @@ Objectif de la phase :
 - [ ] Complétion : 100%
 - [ ] Alice reçoit exactement 6 événements Realtime (2 × 3 tâches)
 - [ ] Table notifications contient des entrées pour Bob
-- [ ] Azure Functions répondent en < 500ms -->
+- [ ] Azure Functions répondent en < 500ms
