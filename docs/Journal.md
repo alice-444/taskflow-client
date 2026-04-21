@@ -274,3 +274,6 @@ Objectif de la phase :
 - [x] Azure Functions répondent en < 500ms
 
 <img width="836" height="680" alt="image" src="https://github.com/user-attachments/assets/0f16e108-b8d5-4c8a-aacf-364073b53e51" />
+
+<img width="2302" height="1144" alt="image" src="https://github.com/user-attachments/assets/0aad4cf6-9fd3-4c84-bcb2-d04111540777" />
+
