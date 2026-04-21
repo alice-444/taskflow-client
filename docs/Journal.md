@@ -199,7 +199,7 @@ Outils utilisés :
 #### ✅ Validations
 
 - [x] Compte Resend créé, clé API dans .env et dans les settings Azure
-- [ ] Function App fn-taskflow déployé (visible dans le portail Azure)
+- [x] Function App fn-taskflow déployé (visible dans le portail Azure)
 - [x] Webhook Supabase configuré sur UPDATE de tasks
 - [ ] Assignation d'une tâche → notification insérée dans la table notifications
 - [ ] Logs visibles : az functionapp logs tail --name fn-taskflow --resource-group rg-taskflow
@@ -211,7 +211,7 @@ Supabase
 <img width="2326" height="770" alt="image" src="https://github.com/user-attachments/assets/7aff0141-480b-4507-9914-46d6144f2866" />
 
 Portail Azure
-(image)
+<img width="2276" height="996" alt="image" src="https://github.com/user-attachments/assets/1e31653d-16e8-49af-bc8e-704e3fb718fa" />
 
 Logs
 (image)
@@ -263,34 +263,3 @@ Objectif de la phase :
 - [ ] Alice reçoit exactement 6 événements Realtime (2 × 3 tâches)
 - [ ] Table notifications contient des entrées pour Bob
 - [ ] Azure Functions répondent en < 500ms
-
----
-
-### Monitoring & tests de charge
-
-#### 🎯 Cadre de la phase
-
-Objectif de la phase :
-
-- ??
-
-Outils utilisés :
-
-- **Azure Monitoring / Application Insights** pour:
-  - collecter logs, métriques, traces et erreurs afin de suivre la santé applicative
-  - diagnostiquer rapidement les incidents
-- **k6** pour:
-  - exécuter des tests de charge (pics et charge soutenue)
-  - mesurer latence/erreur et valider la stabilité des endpoints serverless
-
-#### 🛠️ Mise en oeuvre
-
-??
-
-#### ✅ Validation
-
-- [ ] Application Insights : métriques visibles dans Live Metrics
-- [ ] Alerte configurée sur le taux d'erreur
-- [x] k6 : p95 < 500ms sous 50 VUs sur project-stats
-
-(images)
