@@ -4,7 +4,7 @@ TypeScript client toolkit for validating Supabase auth, RLS, CRUD flows, realtim
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - A Supabase project configured for this app schema (`profiles`, `tasks`, `comments`)
 
 ## Setup
@@ -15,13 +15,36 @@ TypeScript client toolkit for validating Supabase auth, RLS, CRUD flows, realtim
 npm install
 ```
 
-1. Configure environment variables in `.env`:
+1. Create your local env file from the example:
+
+```bash
+cp .env.exemple .env
+```
+
+2. Configure environment variables in `.env`:
 
 ```env
-SUPABASE_URL=your_supabase_url
+SUPABASE_URL=https://your-project-ref.supabase.co
 SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_KEY=your_supabase_service_role_key
+UPLOADTHING_SECRET=your_uploadthing_secret
+UPLOADTHING_APP_ID=your_uploadthing_app_id
+RESEND_API_KEY=your_resend_api_key
 ```
+
+Required `.env` details:
+
+- `SUPABASE_URL`: Supabase project base URL (do not append `/rest/v1`).
+- `SUPABASE_ANON_KEY`: public key used by client-side style operations.
+- `SUPABASE_SERVICE_KEY`: service role key for admin/server operations only.
+- `UPLOADTHING_SECRET`: UploadThing backend secret used by upload endpoints.
+- `UPLOADTHING_APP_ID`: UploadThing app identifier.
+- `RESEND_API_KEY`: API key used to send transactional emails.
+
+Security notes:
+
+- Never commit `.env` to git.
+- If a secret was exposed, rotate it in Supabase/UploadThing/Resend dashboards.
 
 ## Available scripts
 
