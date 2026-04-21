@@ -2,11 +2,12 @@
   "name": "taskflow-client",
   "description": "Client scripts for Supabase auth and RLS checks",
   "type": "module",
-  "main": "client.js",
+  "main": "client.ts",
   "scripts": {
-    "start": "node test-rls.js",
-    "test:rls": "node test-rls.js",
-    "test": "npm run test:rls"
+    "start": "tsx test-rls.ts",
+    "test:rls": "tsx test-rls.ts",
+    "build": "tsc --noEmit",
+    "test": "npm run build && npm run test:rls"
   },
   "keywords": [
     "serverless",
@@ -14,8 +15,19 @@
     "rls"
   ],
   "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.104.0",
-    "dotenv": "^17.4.2"
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@uploadthing/react": "^7.3.3",
+    "dotenv": "^17.4.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "uploadthing": "^7.7.4"
   }
 }

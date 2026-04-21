@@ -1,6 +1,6 @@
 # taskflow-client
 
-Node.js client to test Supabase authentication and RLS behavior.
+TypeScript Node.js client to test Supabase authentication and RLS behavior.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ Node.js client to test Supabase authentication and RLS behavior.
 npm install
 ```
 
-2. Configure environment variables in `.env`:
+1. Configure environment variables in `.env`:
 
 ```env
 SUPABASE_URL=your_supabase_url
@@ -31,9 +31,15 @@ Execute the RLS verification script:
 npm run test:rls
 ```
 
-This runs `test-rls.js`, which:
+This runs `test-rls.ts`, which:
 
 - queries `tasks` without auth
 - signs in a user
 - checks visible tasks
 - attempts an unauthorized update to validate RLS protection
+
+## TypeScript check
+
+```bash
+npm run build
+```
