@@ -2,16 +2,9 @@
 
 ---
 
-- 📘 Journal
-  - 🧰 Choix techniques
-  - 🗂️ Phases
-    - 🏗️ Setup & Modélisation de la base de données
-    - 🔐 Authentification & Row Level Security
-    - 🛠️ CRUD, uploads de fichiers & temps réel
-    - 📧 Notifications automatiques par email
-    - 🌐 Logique métier serverless (3 endpoints)
-    - ✅ Intégration finale & pipeline complet
-    - 📊 Monitoring & tests de charge
+- [📘 Journal](#-journal)
+  - [🧰 Choix techniques](#-choix-techniques)
+  - [🗂️ Phases](#️-phases)
 
 ---
 
@@ -29,13 +22,37 @@
 
 ## 🗂️ Phases
 
-- 🏗️ Setup & Modélisation de la base de données
-- 🔐 Authentification & Row Level Security
-- 🛠️ CRUD, uploads de fichiers & temps réel
-- 📧 Notifications automatiques par email
-- 🌐 Logique métier serverless (3 endpoints)
-- ✅ Intégration finale & pipeline complet
-- 📊 Monitoring & tests de charge
+- [📘 Journal](#-journal)
+  - [🧰 Choix techniques](#-choix-techniques)
+  - [🗂️ Phases](#️-phases)
+    - [🏗️ Setup \& Modélisation de la base de données](#️-setup--modélisation-de-la-base-de-données)
+      - [🎯 Cadre de la phase (Setup)](#-cadre-de-la-phase-setup)
+      - [🛠️ Mise en oeuvre (Setup)](#️-mise-en-oeuvre-setup)
+      - [✅ Validations](#-validations)
+    - [🔐 Authentification \& Row Level Security](#-authentification--row-level-security)
+      - [🎯 Cadre de la phase (Auth \& RLS)](#-cadre-de-la-phase-auth--rls)
+      - [🛠️ Mise en oeuvre (Auth \& RLS)](#️-mise-en-oeuvre-auth--rls)
+      - [✅ Validations](#-validations-1)
+    - [🛠️ CRUD, uploads de fichiers \& temps réel](#️-crud-uploads-de-fichiers--temps-réel)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre)
+      - [✅ Validation](#-validation)
+    - [📧 Notifications automatiques par email](#-notifications-automatiques-par-email)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase-1)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-1)
+      - [✅ Validations](#-validations-2)
+    - [🌐 Logique métier serverless (3 endpoints)](#-logique-métier-serverless-3-endpoints)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase-2)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-2)
+      - [✅ Validation](#-validation-1)
+    - [✅ Intégration finale \& pipeline complet](#-intégration-finale--pipeline-complet)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase-3)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-3)
+      - [✅ Validation](#-validation-2)
+    - [Monitoring \& tests de charge](#monitoring--tests-de-charge)
+      - [🎯 Cadre de la phase](#-cadre-de-la-phase-4)
+      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-4)
+      - [✅ Validation](#-validation-3)
 
 ---
 
@@ -65,6 +82,15 @@ Outil utilisé :
   - `comments`: commentaires liés aux tâches
 - Ajout des clés étrangères pour sécuriser l'intégrité des relations (créateur, assigné, auteur).
 
+#### ✅ Validations
+
+- [ ] 6 tables sont bien visibles dans le Table Editor.
+  (image)
+- [ ] 2 profils et au moins 3 tâches de démonstration sont insérés.
+  (image)
+- [ ] L'accès au projet fonctionne correctement avec les données attendues.
+  (image)
+
 ---
 
 ### 🔐 Authentification & Row Level Security
@@ -90,6 +116,13 @@ Outil utilisé :
   - modification/suppression uniquement par le propriétaire ou selon le rôle
 - Vérification par script de test RLS (`test-rls.ts`) pour valider les refus d'accès non autorisés.
 
+#### ✅ Validations
+
+- [ ] Sans authentification: 0 résultat sur les tables protégées.
+- [ ] Alice voit uniquement ses tâches et aucune tâche d'un autre projet.
+- [ ] Toute tentative de modification d'une tâche de Bob est refusée par la RLS.
+  (image)
+
 ---
 
 ### 🛠️ CRUD, uploads de fichiers & temps réel
@@ -98,20 +131,40 @@ Outil utilisé :
 
 Objectif de la phase :
 
-- ??
+- proposer une expérience collaborative fluide avec gestion complète des tâches, pièces jointes et mises à jour en temps réel
 
-Outil utilisé :
+Outils utilisés :
 
 - **Supabase SDK** pour:
   - implémenter le CRUD des tâches et commentaires (lecture, création, mise à jour, assignation) avec gestion des permissions applicatives
 - **Uploadthing** pour:
   - gérer l'upload sécurisé des pièces jointes (types/tailles autorisés) et récupérer l'URL finale associée à une tâche
-- **Realtime** pour:
-  - synchroniser en direct les changements de tâches/commentaires et la présence des utilisateurs sur un projet
 
 #### 🛠️ Mise en oeuvre
 
-??
+- Implémentation des fonctions métier dans `tasks.ts`:
+  - récupération des tâches d'un projet avec filtres (`status`, `priority`)
+  - création de tâche avec métadonnées (assignation, échéance, fichier joint)
+  - mise à jour du statut et assignation d'un utilisateur
+  - ajout de commentaires liés aux tâches
+- Intégration de l'upload de fichiers avec `upload.ts`:
+  - définition des types autorisés (image, pdf) et limites de taille
+  - validation côté middleware avant upload
+  - association de l'URL du fichier à la tâche
+- Mise en place du temps réel dans `realtime.ts`:
+  - souscription aux changements PostgreSQL sur `tasks` et `comments`
+  - callbacks sur création, mise à jour et suppression
+  - suivi de présence des utilisateurs connectés sur un projet
+
+#### ✅ Validation
+
+- [ ]`getProjectTasks()` retourne bien les tâches avec profil associé et nombre de commentaires.
+- [ ] Compte Uploadthing créé et clés configurées dans `.env`.
+- [ ] Colonne `file_url` présente dans la table `tasks`.
+- [ ] Alice reçoit en temps réel les créations de Bob (< 500 ms).
+- [ ] Les changements de statut sont propagés instantanément.
+- [ ] La présence affiche correctement les deux utilisateurs connectés.
+  (images)
 
 ---
 
@@ -134,6 +187,15 @@ Outils utilisés :
 
 ??
 
+#### ✅ Validations
+
+- [ ] Compte Resend créé, clé API dans .env et dans les settings Azure
+- [ ] Function App fn-taskflow déployé (visible dans le portail Azure)
+- [ ] Webhook Supabase configuré sur UPDATE de tasks
+- [ ] Assignation d'une tâche → notification insérée dans la table notifications
+- [ ] Logs visibles : az functionapp logs tail --name fn-taskflow --resource-group rg-
+taskflow
+
 ---
 
 ### 🌐 Logique métier serverless (3 endpoints)
@@ -153,6 +215,13 @@ Outil utilisé :
 
 ??
 
+#### ✅ Validation
+
+- [ ] 4 fonctions déployées (visible dans le portail Azure → fn-taskflow → Functions)
+- [ ] validate-task : rejette titre court, date passée, non-membre assigné
+- [ ] project-stats : taux de complétion et tâches en retard corrects
+- [ ] manage-members : Bob simple membre → 403, owner non retirable
+
 ---
 
 ### ✅ Intégration finale & pipeline complet
@@ -166,6 +235,14 @@ Objectif de la phase :
 #### 🛠️ Mise en oeuvre
 
 ??
+
+#### ✅ Validation
+
+- [ ] Le script integration.js tourne sans erreur
+- [ ] Complétion : 100%
+- [ ] Alice reçoit exactement 6 événements Realtime (2 × 3 tâches)
+- [ ] Table notifications contient des entrées pour Bob
+- [ ] Azure Functions répondent en < 500ms
 
 ---
 
@@ -189,3 +266,11 @@ Outils utilisés :
 #### 🛠️ Mise en oeuvre
 
 ??
+
+#### ✅ Validation
+
+- [ ] Application Insights : métriques visibles dans Live Metrics
+- [ ] Alerte configurée sur le taux d'erreur
+- [x] k6 : p95 < 500ms sous 50 VUs sur project-stats
+
+(images)
