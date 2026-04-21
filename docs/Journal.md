@@ -202,7 +202,7 @@ Outils utilisés :
 - [x] Compte Resend créé, clé API dans .env et dans les settings Azure
 - [x] Function App fn-taskflow déployé (visible dans le portail Azure)
 - [x] Webhook Supabase configuré sur UPDATE de tasks
-- [ ] Assignation d'une tâche → notification insérée dans la table notifications
+- [x] Assignation d'une tâche → notification insérée dans la table notifications
 - [ ] Logs visibles : az functionapp logs tail --name fn-taskflow --resource-group rg-taskflow
 
 Resend
@@ -240,10 +240,14 @@ Outil utilisé :
 
 #### ✅ Validation
 
-- [ ] 4 fonctions déployées (visible dans le portail Azure → fn-taskflow → Functions)
-- [ ] validate-task : rejette titre court, date passée, non-membre assigné
-- [ ] project-stats : taux de complétion et tâches en retard corrects
-- [ ] manage-members : Bob simple membre → 403, owner non retirable
+- [x] 4 fonctions déployées (visible dans le portail Azure → fn-taskflow → Functions)
+- [x] validate-task : rejette titre court, date passée, non-membre assigné
+- [x] project-stats : taux de complétion et tâches en retard corrects
+- [x] manage-members : Bob simple membre → 403, owner non retirable
+
+<img width="2384" height="352" alt="image" src="https://github.com/user-attachments/assets/5798aed7-e110-4b2a-9fb7-760f9c273df6" />
+
+<img width="1600" height="562" alt="image" src="https://github.com/user-attachments/assets/7fa33748-8c6d-4edd-9b01-4a150be4e3ac" />
 
 ### ✅ Intégration finale & pipeline complet
 
@@ -263,8 +267,10 @@ Objectif de la phase :
 
 #### ✅ Validation
 
-- [ ] Le script integration.js tourne sans erreur
-- [ ] Complétion : 100%
-- [ ] Alice reçoit exactement 6 événements Realtime (2 × 3 tâches)
-- [ ] Table notifications contient des entrées pour Bob
-- [ ] Azure Functions répondent en < 500ms
+- [x] Le script integration.js tourne sans erreur
+- [x] Complétion : 100%
+- [x] Alice reçoit exactement 6 événements Realtime (2 × 3 tâches)
+- [x] Table notifications contient des entrées pour Bob
+- [x] Azure Functions répondent en < 500ms
+
+<img width="836" height="680" alt="image" src="https://github.com/user-attachments/assets/0f16e108-b8d5-4c8a-aacf-364073b53e51" />
