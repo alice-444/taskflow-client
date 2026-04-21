@@ -9,7 +9,7 @@ console.log("Sans auth:", noAuth?.length, "(attendu: 0)");
 // Test 2 : Alice voit ses tâches
 const { user } = await signIn("remimoul7@gmail.com", "Modibo93200");
 const { data: tasks } = await supabase.from("tasks").select("*").eq("assigned_to", user?.id);
-console.log("Tasks:", tasks?.length);
+console.log("Tasks Rémi:", tasks?.length);
 
 // Test 3 : Alice ne peut pas modifier la tâche de Bob
 const { data: bobTask } = await supabase
