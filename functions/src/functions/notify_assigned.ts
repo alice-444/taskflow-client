@@ -45,7 +45,7 @@ async function insertNotification(
   type: string,
   title: string,
   body: string,
-  metadata: Record<string, any>
+  metadata: Record<string, any>,
 ): Promise<void> {
   await fetch(`${SUPABASE_URL}/rest/v1/notifications`, {
     method: "POST",
