@@ -41,18 +41,6 @@
       - [🎯 Cadre de la phase](#-cadre-de-la-phase-1)
       - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-1)
       - [✅ Validations](#-validations-2)
-    - [🌐 Logique métier serverless (3 endpoints)](#-logique-métier-serverless-3-endpoints)
-      - [🎯 Cadre de la phase](#-cadre-de-la-phase-2)
-      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-2)
-      - [✅ Validation](#-validation-1)
-    - [✅ Intégration finale \& pipeline complet](#-intégration-finale--pipeline-complet)
-      - [🎯 Cadre de la phase](#-cadre-de-la-phase-3)
-      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-3)
-      - [✅ Validation](#-validation-2)
-    - [Monitoring \& tests de charge](#monitoring--tests-de-charge)
-      - [🎯 Cadre de la phase](#-cadre-de-la-phase-4)
-      - [🛠️ Mise en oeuvre](#️-mise-en-oeuvre-4)
-      - [✅ Validation](#-validation-3)
 
 ---
 
@@ -160,6 +148,7 @@ Outils utilisés :
   - suivi de présence des utilisateurs connectés sur un projet
 
 #### ✅ Validation
+
 - [x] `getProjectTasks()` retourne bien les tâches avec profil associé et nombre de commentaires.
 - [x] Compte Uploadthing créé et clés configurées dans `.env`.
 - [x] Colonne `file_url` présente dans la table `tasks`.
@@ -183,7 +172,7 @@ Outils utilisés :
 
 Objectif de la phase :
 
-- ??
+- déclencher et tracer automatiquement les emails transactionnels lors des événements métier clés (assignation, changement de statut, mise à jour de tâche)
 
 Outils utilisés :
 
@@ -194,7 +183,11 @@ Outils utilisés :
 
 #### 🛠️ Mise en oeuvre
 
-??
+- Création d'un endpoint serverless Azure Functions dédié à l'envoi d'emails.
+- Intégration de Resend pour générer et envoyer les notifications transactionnelles.
+- Déclenchement de l'envoi depuis les événements métier (webhook Supabase sur `tasks`).
+- Ajout de logs applicatifs pour faciliter le suivi des envois et le diagnostic des erreurs.
+- Préparation d'une table `notifications` pour tracer l'historique des messages envoyés.
 
 #### ✅ Validations
 
@@ -216,7 +209,7 @@ Portail Azure
 Logs
 (image)
 
----
+<!-- ---
 
 ### 🌐 Logique métier serverless (3 endpoints)
 
@@ -242,9 +235,9 @@ Outil utilisé :
 - [ ] project-stats : taux de complétion et tâches en retard corrects
 - [ ] manage-members : Bob simple membre → 403, owner non retirable
 
----
+--- -->
 
-### ✅ Intégration finale & pipeline complet
+<!-- ### ✅ Intégration finale & pipeline complet
 
 #### 🎯 Cadre de la phase
 
@@ -262,4 +255,4 @@ Objectif de la phase :
 - [ ] Complétion : 100%
 - [ ] Alice reçoit exactement 6 événements Realtime (2 × 3 tâches)
 - [ ] Table notifications contient des entrées pour Bob
-- [ ] Azure Functions répondent en < 500ms
+- [ ] Azure Functions répondent en < 500ms -->
